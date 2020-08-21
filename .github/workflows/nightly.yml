@@ -1,14 +1,13 @@
 name: Cordova Nightly
 
 on:
-  schedule:
-    - cron: '* */4 * * *'
-
   workflow_dispatch:
     inputs:
       description: 'Reason of Manual Dispatch'
       required: true
       default: 'Re-run broken nightly build'
+  schedule:
+    - cron: '* */4 * * *'
 
 jobs:
   build:
