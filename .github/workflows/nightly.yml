@@ -1,8 +1,8 @@
 name: "Cordova Nightly"
 
-on:
-  schedule:
-    - cron: '*/15 * * * *'
+on: [push]
+  # schedule:
+  #   - cron: '*/15 * * * *'
 
 jobs:
   build:
@@ -15,14 +15,19 @@ jobs:
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
+        env:
+          HOGEHOGE: TEST
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Cordova Coho - Setup
         run: |
+          echo "env set? ${HOGEHOGE}"
           npm i
           npm link
 
       - name: Cordova Coho - Create Nightlies
         run: |
+          echo "env set? ${HOGEHOGE}"
           cd ..
           coho nightly \
             -r cli \
@@ -40,9 +45,8 @@ jobs:
       # All the mkdir in the following steps are mocks.
       # They will be removed as the step above will actually make these dirs.
       - name: NPM Publish - cordova-cli
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-cli
           cd cordova-cli
@@ -50,9 +54,8 @@ jobs:
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-lib
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-lib
           cd cordova-lib
@@ -60,9 +63,8 @@ jobs:
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-common
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-common
           cd cordova-common
@@ -70,9 +72,8 @@ jobs:
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-fetch
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-fetch
           cd cordova-fetch
@@ -80,9 +81,8 @@ jobs:
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-serve
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-serve
           cd cordova-serve
@@ -90,9 +90,8 @@ jobs:
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-create
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-create
           cd cordova-create
@@ -100,9 +99,8 @@ jobs:
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-node-xcode
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-node-xcode
           cd cordova-node-xcode
@@ -110,9 +108,8 @@ jobs:
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-android
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-android
           cd cordova-android
@@ -120,9 +117,8 @@ jobs:
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-electron
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-electron
           cd cordova-electron
@@ -130,9 +126,8 @@ jobs:
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-ios
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-ios
           cd cordova-ios
