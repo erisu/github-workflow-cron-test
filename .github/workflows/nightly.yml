@@ -104,7 +104,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           cd ..
-          mkdir cordova-node
+          mkdir cordova-node-xcode
           cd cordova-node-xcode
           pwd
           echo "npm publish --tag nightly"
