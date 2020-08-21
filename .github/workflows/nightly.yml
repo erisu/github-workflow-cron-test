@@ -18,7 +18,16 @@ jobs:
         run: echo "Targeted Cordova Packages:\n$( printf '  - %s\n' "${CDV_TARGETS[@]}" )" 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          CDV_TARGETS: (cli lib common fetch serve create node-xcode android electron ios)
+          CDV_TARGETS:
+            - cli
+            - lib
+            - common
+            - fetch
+            - serve
+            - create
+            - node-xcode
+            - android electron
+            - ios
 
       - name: Setup Coho
         run: |
