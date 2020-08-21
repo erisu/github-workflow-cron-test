@@ -18,7 +18,7 @@ jobs:
         run: echo "Targeted Cordova Packages:\n$( printf '  - %s\n' "${CDV_TARGETS[@]}" )" 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          CDV_TARGETS: [cli, lib, common, fetch, serve, create, node-xcode, android, electron, ios]
+          CDV_TARGETS_STRING: "cli:lib:common:fetch:serve:create:node-xcode:android:electron:ios"
 
       - name: Setup Coho
         run: |
@@ -27,10 +27,13 @@ jobs:
           cd ..
 
       - name: Run Coho Nightly
-        run: echo "$( printf '-r %s ' "${CDV_TARGETS[@]}" )--pretend" | xargs coho nightly
+        run: |
+          CDV_TARGETS=$(echo $CDV_TARGETS_STRING | tr ":" "\n")
+          echo "$( printf '-r %s ' "${CDV_TARGETS[@]}" )--pretend" | xargs coho nightly
 
       - name: NPM Publish Cordova Packages
         run: |
+          CDV_TARGETS=$(echo $CDV_TARGETS_STRING | tr ":" "\n")
           for target in "${CDV_TARGETS[@]}"
           do
             echo "Publishing cordova-${target}"
