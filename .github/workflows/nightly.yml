@@ -15,16 +15,6 @@ on:
 
   schedule:
     - cron: '*/15 * * * *'
-    inputs:
-      dispatchReason:
-        description: 'Reason of Manual Dispatch'
-        required: true
-        default: 'Default nightly build'
-
-      verbose:
-        description: 'Enable Verbose'
-        required: true
-        default: 'false'
 
 jobs:
   build:
