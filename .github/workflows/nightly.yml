@@ -8,7 +8,7 @@ on:
         required: true
         default: 'Re-run broken nightly build'
   schedule:
-    - cron: '* */4 * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   build:
@@ -24,6 +24,10 @@ jobs:
         with:
           node-version: 14.x
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Inputs
+        run: |
+          echo "Dispatch Reason: ${{ github.event.inputs.dispatchReason }}"
 
       - name: Cordova Coho - Setup
         run: |
