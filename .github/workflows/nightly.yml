@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      HOGEHOGE: TEST
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
@@ -22,13 +21,11 @@ jobs:
 
       - name: Cordova Coho - Setup
         run: |
-          echo "env set? ${HOGEHOGE}"
           npm i
           npm link
 
       - name: Cordova Coho - Create Nightlies
         run: |
-          echo "env set? ${HOGEHOGE}"
           cd ..
           coho nightly \
             -r cli \
@@ -47,7 +44,6 @@ jobs:
       # They will be removed as the step above will actually make these dirs.
       - name: NPM Publish - cordova-cli
         run: |
-          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-cli
           cd cordova-cli
@@ -56,7 +52,6 @@ jobs:
 
       - name: NPM Publish - cordova-lib
         run: |
-          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-lib
           cd cordova-lib
@@ -65,7 +60,6 @@ jobs:
 
       - name: NPM Publish - cordova-common
         run: |
-          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-common
           cd cordova-common
@@ -74,7 +68,6 @@ jobs:
 
       - name: NPM Publish - cordova-fetch
         run: |
-          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-fetch
           cd cordova-fetch
@@ -83,7 +76,6 @@ jobs:
 
       - name: NPM Publish - cordova-serve
         run: |
-          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-serve
           cd cordova-serve
@@ -92,7 +84,6 @@ jobs:
 
       - name: NPM Publish - cordova-create
         run: |
-          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-create
           cd cordova-create
@@ -101,7 +92,6 @@ jobs:
 
       - name: NPM Publish - cordova-node-xcode
         run: |
-          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-node-xcode
           cd cordova-node-xcode
@@ -110,7 +100,6 @@ jobs:
 
       - name: NPM Publish - cordova-android
         run: |
-          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-android
           cd cordova-android
@@ -119,7 +108,6 @@ jobs:
 
       - name: NPM Publish - cordova-electron
         run: |
-          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-electron
           cd cordova-electron
@@ -128,7 +116,6 @@ jobs:
 
       - name: NPM Publish - cordova-ios
         run: |
-          echo "env set? ${HOGEHOGE}"
           cd ..
           mkdir cordova-ios
           cd cordova-ios
