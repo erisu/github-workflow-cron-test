@@ -7,17 +7,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+
       - name: Environment Variable Setup
         run: echo "Targeted Cordova Packages:\n$( printf '  - %s\n' "${targets[@]}" )" 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           CDV_TARGETS: (cli lib common fetch serve create node-xcode android electron ios)
-
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-          registry-url: 'https://registry.npmjs.org'
 
       - name: Setup Coho
         run: |
