@@ -16,12 +16,12 @@ jobs:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Setup Coho
+      - name: Cordova Coho - Setup
         run: |
           npm i
           npm link
 
-      - name: Run Coho Nightly
+      - name: Cordova Coho - Create Nightlies
         run: |
           cd ..
           coho nightly \
