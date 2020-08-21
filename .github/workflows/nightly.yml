@@ -22,22 +22,102 @@ jobs:
 
       - name: Setup Coho
         run: |
+          pwd
           npm i
           npm link
           cd ..
+          pwd
 
       - name: Run Coho Nightly
         run: |
-          CDV_TARGETS=$(echo $CDV_TARGETS_STRING | tr ":" "\n")
-          echo "$( printf '-r %s ' "${CDV_TARGETS[@]}" )--pretend" | xargs coho nightly
+          echo "coho nightly -r cli -r lib -r common -r fetch -r serve -r create -r node-xcode -r android -r electron -r ios --pretend"
 
-      - name: NPM Publish Cordova Packages
+      - name: Publish NPM Packages cordova-cli
         run: |
-          CDV_TARGETS=$(echo $CDV_TARGETS_STRING | tr ":" "\n")
-          for target in "${CDV_TARGETS[@]}"
-          do
-            echo "Publishing cordova-${target}"
-            echo "changing working directory to cordova-${target}"
-            echo "npm is publishing tag nightly"
-            echo "changing working directory back to parent"
-          done
+          pwd
+          echo "changing working directory to cordova-cli"
+          pwd
+          echo "npm is publishing tag nightly"
+          echo "changing working directory back to parent"
+          pwd
+
+      - name: Publish NPM Packages cordova-lib
+        run: |
+          pwd
+          echo "changing working directory to cordova-lib"
+          pwd
+          echo "npm is publishing tag nightly"
+          echo "changing working directory back to parent"
+          pwd
+
+      - name: Publish NPM Packages cordova-common
+        run: |
+          pwd
+          echo "changing working directory to cordova-common"
+          pwd
+          echo "npm is publishing tag nightly"
+          echo "changing working directory back to parent"
+          pwd
+
+      - name: Publish NPM Packages cordova-fetch
+        run: |
+          pwd
+          echo "changing working directory to cordova-fetch"
+          pwd
+          echo "npm is publishing tag nightly"
+          echo "changing working directory back to parent"
+          pwd
+
+      - name: Publish NPM Packages cordova-serve
+        run: |
+          pwd
+          echo "changing working directory to cordova-serve"
+          pwd
+          echo "npm is publishing tag nightly"
+          echo "changing working directory back to parent"
+          pwd
+
+      - name: Publish NPM Packages cordova-create
+        run: |
+          pwd
+          echo "changing working directory to cordova-create"
+          pwd
+          echo "npm is publishing tag nightly"
+          echo "changing working directory back to parent"
+          pwd
+
+      - name: Publish NPM Packages cordova-node-xcode
+        run: |
+          pwd
+          echo "changing working directory to cordova-node-xcode"
+          pwd
+          echo "npm is publishing tag nightly"
+          echo "changing working directory back to parent"
+          pwd
+
+      - name: Publish NPM Packages cordova-android
+        run: |
+          pwd
+          echo "changing working directory to cordova-android"
+          pwd
+          echo "npm is publishing tag nightly"
+          echo "changing working directory back to parent"
+          pwd
+
+      - name: Publish NPM Packages cordova-electron
+        run: |
+          pwd
+          echo "changing working directory to cordova-electron"
+          pwd
+          echo "npm is publishing tag nightly"
+          echo "changing working directory back to parent"
+          pwd
+
+      - name: Publish NPM Packages cordova-ios
+        run: |
+          pwd
+          echo "changing working directory to cordova-ios"
+          pwd
+          echo "npm is publishing tag nightly"
+          echo "changing working directory back to parent"
+          pwd
