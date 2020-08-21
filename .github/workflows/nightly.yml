@@ -1,9 +1,7 @@
 name: "Cordova Nightly"
-
 on:
   schedule:
     - cron: "*/5 * * * *"
-​
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,17 +18,19 @@ jobs:
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
-      
-      - run: |
+
+      - name: Setup Coho
+        run: |
           npm i
           npm link
           cd ..
   ​
-      - run: |
-          echo "Running Coho Nightly"
+      - name: Run Coho Nightly
+        run: |
           echo "$( printf '-r %s ' "${CDV_TARGETS[@]}" )--pretend" | xargs coho nightly
   ​
-      - run: |
+      - name: NPM Publish Cordova Packages
+        run: |
           for target in "${CDV_TARGETS[@]}"
           do
             echo "Publishing cordova-${target}"
