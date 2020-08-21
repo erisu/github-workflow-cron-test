@@ -45,7 +45,6 @@ jobs:
       - name: NPM Publish - cordova-cli
         run: |
           cd ..
-          mkdir cordova-cli
           cd cordova-cli
           pwd
           echo "npm publish --tag nightly"
@@ -53,7 +52,6 @@ jobs:
       - name: NPM Publish - cordova-lib
         run: |
           cd ..
-          mkdir cordova-lib
           cd cordova-lib
           pwd
           echo "npm publish --tag nightly"
@@ -61,7 +59,6 @@ jobs:
       - name: NPM Publish - cordova-common
         run: |
           cd ..
-          mkdir cordova-common
           cd cordova-common
           pwd
           echo "npm publish --tag nightly"
@@ -69,7 +66,6 @@ jobs:
       - name: NPM Publish - cordova-fetch
         run: |
           cd ..
-          mkdir cordova-fetch
           cd cordova-fetch
           pwd
           echo "npm publish --tag nightly"
@@ -77,7 +73,6 @@ jobs:
       - name: NPM Publish - cordova-serve
         run: |
           cd ..
-          mkdir cordova-serve
           cd cordova-serve
           pwd
           echo "npm publish --tag nightly"
@@ -85,7 +80,6 @@ jobs:
       - name: NPM Publish - cordova-create
         run: |
           cd ..
-          mkdir cordova-create
           cd cordova-create
           pwd
           echo "npm publish --tag nightly"
@@ -93,7 +87,6 @@ jobs:
       - name: NPM Publish - cordova-node-xcode
         run: |
           cd ..
-          mkdir cordova-node-xcode
           cd cordova-node-xcode
           pwd
           echo "npm publish --tag nightly"
@@ -101,7 +94,6 @@ jobs:
       - name: NPM Publish - cordova-android
         run: |
           cd ..
-          mkdir cordova-android
           cd cordova-android
           pwd
           echo "npm publish --tag nightly"
@@ -109,7 +101,6 @@ jobs:
       - name: NPM Publish - cordova-electron
         run: |
           cd ..
-          mkdir cordova-electron
           cd cordova-electron
           pwd
           echo "npm publish --tag nightly"
@@ -117,7 +108,6 @@ jobs:
       - name: NPM Publish - cordova-ios
         run: |
           cd ..
-          mkdir cordova-ios
           cd cordova-ios
           pwd
           echo "npm publish --tag nightly"
