@@ -5,15 +5,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Environment Variable Setup
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           CDV_TARGETS: (cli lib common fetch serve create node-xcode android electron ios)
-
+          
       - uses: actions/checkout@v2
-  ​
       - uses: actions/setup-node@v2
         with:
           node-version: '14.x'
@@ -26,8 +25,7 @@ jobs:
           cd ..
   ​
       - name: Run Coho Nightly
-        run: |
-          echo "$( printf '-r %s ' "${CDV_TARGETS[@]}" )--pretend" | xargs coho nightly
+        run: echo "$( printf '-r %s ' "${CDV_TARGETS[@]}" )--pretend" | xargs coho nightly
   ​
       - name: NPM Publish Cordova Packages
         run: |
