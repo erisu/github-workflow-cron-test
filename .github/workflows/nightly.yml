@@ -43,59 +43,49 @@ jobs:
       - name: NPM Publish - cordova-cli
         run: |
           cd ../cordova-cli
-          pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-lib
         run: |
           cd ../cordova-lib
-          pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-common
         run: |
           cd ../cordova-common
-          pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-fetch
         run: |
           cd ../cordova-fetch
-          pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-serve
         run: |
           cd ../cordova-serve
-          pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-create
         run: |
           cd ../cordova-create
-          pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-node-xcode
         run: |
           cd ../cordova-node-xcode
-          pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-android
         run: |
           cd ../cordova-android
-          pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-electron
         run: |
           cd ../cordova-electron
-          pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-ios
         run: |
           cd ../cordova-ios
-          pwd
           echo "npm publish --tag nightly"
