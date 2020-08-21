@@ -40,74 +40,62 @@ jobs:
             -r ios \
             --pretend
 
-      # All the mkdir in the following steps are mocks.
-      # They will be removed as the step above will actually make these dirs.
       - name: NPM Publish - cordova-cli
         run: |
-          cd ..
-          cd cordova-cli
+          cd ../cordova-cli
           pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-lib
         run: |
-          cd ..
-          cd cordova-lib
+          cd ../cordova-lib
           pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-common
         run: |
-          cd ..
-          cd cordova-common
+          cd ../cordova-common
           pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-fetch
         run: |
-          cd ..
-          cd cordova-fetch
+          cd ../cordova-fetch
           pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-serve
         run: |
-          cd ..
-          cd cordova-serve
+          cd ../cordova-serve
           pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-create
         run: |
-          cd ..
-          cd cordova-create
+          cd ../cordova-create
           pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-node-xcode
         run: |
-          cd ..
-          cd cordova-node-xcode
+          cd ../cordova-node-xcode
           pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-android
         run: |
-          cd ..
-          cd cordova-android
+          cd ../cordova-android
           pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-electron
         run: |
-          cd ..
-          cd cordova-electron
+          cd ../cordova-electron
           pwd
           echo "npm publish --tag nightly"
 
       - name: NPM Publish - cordova-ios
         run: |
-          cd ..
-          cd cordova-ios
+          cd ../cordova-ios
           pwd
           echo "npm publish --tag nightly"
