@@ -12,8 +12,19 @@ on:
         description: 'Enable Verbose'
         required: true
         default: 'false'
+
   schedule:
     - cron: '*/15 * * * *'
+    inputs:
+      dispatchReason:
+        description: 'Reason of Manual Dispatch'
+        required: true
+        default: 'Default nightly build'
+
+      verbose:
+        description: 'Enable Verbose'
+        required: true
+        default: 'false'
 
 jobs:
   build:
@@ -30,7 +41,7 @@ jobs:
           node-version: 14.x
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Inputs
+      - name: Dispatch Inputs
         run: |
           echo "Dispatch Reason: ${{ github.event.inputs.dispatchReason }}"
           echo "Enable Verbose: ${{ github.event.inputs.verbose }}"
@@ -55,7 +66,7 @@ jobs:
             -r electron \
             -r ios \
             --pretend \
-            --verbose ${{ github.event.inputs.verbose }}
+            --verbose ${{ github.event.inputs.verbose == 'true' }}
 
       - name: NPM Publish - cordova-cli
         run: |
