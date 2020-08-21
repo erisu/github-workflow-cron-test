@@ -4,36 +4,37 @@ on:
   schedule:
     - cron: "*/5 * * * *"
 ​
-env:
-  CDV_TARGETS: (cli lib common fetch serve create node-xcode android electron ios)
-​
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-​
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '14.x'
-        registry-url: 'https://registry.npmjs.org'
-    
-    - run: |
-        npm i
-        npm link
-        cd ..
-​
-    - run: |
-        echo "Running Coho Nightly"
-        echo "$( printf '-r %s ' "${CDV_TARGETS[@]}" )--pretend" | xargs coho nightly
-​
-    - run: |
-        for target in "${CDV_TARGETS[@]}"
-        do
-          echo "Publishing cordova-${target}"
-          echo "changing working directory to cordova-${target}"
-          echo "npm is publishing tag nightly"
-          echo "changing working directory back to parent"
-        done
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Environment Variable Setup
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          CDV_TARGETS: (cli lib common fetch serve create node-xcode android electron ios)
+
+      - uses: actions/checkout@v2
+  ​
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+      
+      - run: |
+          npm i
+          npm link
+          cd ..
+  ​
+      - run: |
+          echo "Running Coho Nightly"
+          echo "$( printf '-r %s ' "${CDV_TARGETS[@]}" )--pretend" | xargs coho nightly
+  ​
+      - run: |
+          for target in "${CDV_TARGETS[@]}"
+          do
+            echo "Publishing cordova-${target}"
+            echo "changing working directory to cordova-${target}"
+            echo "npm is publishing tag nightly"
+            echo "changing working directory back to parent"
+          done
