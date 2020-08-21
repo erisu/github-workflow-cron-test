@@ -5,7 +5,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Environment Variable Setup
         env:
@@ -23,10 +23,10 @@ jobs:
           npm i
           npm link
           cd ..
-  ​
+
       - name: Run Coho Nightly
         run: echo "$( printf '-r %s ' "${CDV_TARGETS[@]}" )--pretend" | xargs coho nightly
-  ​
+
       - name: NPM Publish Cordova Packages
         run: |
           for target in "${CDV_TARGETS[@]}"
