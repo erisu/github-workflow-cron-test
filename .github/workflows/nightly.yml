@@ -54,7 +54,7 @@ jobs:
             -r android \
             -r electron \
             -r ios \
-            --pretend
+            --pretend \
             --verbose ${{ github.event.inputs.verbose }}
 
       - name: NPM Publish - cordova-cli
