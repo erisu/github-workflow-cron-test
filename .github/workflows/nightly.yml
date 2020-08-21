@@ -18,14 +18,12 @@ jobs:
 
       - name: Setup Coho
         run: |
-          pwd
           npm i
           npm link
-          cd ..
-          pwd
 
       - name: Run Coho Nightly
         run: |
+          cd ..
           coho nightly \
             -r cli \
             -r lib \
@@ -39,112 +37,104 @@ jobs:
             -r ios \
             --pretend
 
+      # All the mkdir in the following steps are mocks.
+      # They will be removed as the step above will actually make these dirs.
       - name: Publish NPM Packages cordova-cli
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          cd ..
+          mkdir cordova-cli
+          cd cordova-cli
           pwd
-          echo "changing working directory to cordova-cli"
-          pwd
-          echo "npm is publishing tag nightly"
-          echo "changing working directory back to parent"
-          pwd
+          echo "npm publish --tag nightly"
 
       - name: Publish NPM Packages cordova-lib
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          cd ..
+          mkdir cordova-lib
+          cd cordova-lib
           pwd
-          echo "changing working directory to cordova-lib"
-          pwd
-          echo "npm is publishing tag nightly"
-          echo "changing working directory back to parent"
-          pwd
+          echo "npm publish --tag nightly"
 
       - name: Publish NPM Packages cordova-common
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          cd ..
+          mkdir cordova-common
+          cd cordova-common
           pwd
-          echo "changing working directory to cordova-common"
-          pwd
-          echo "npm is publishing tag nightly"
-          echo "changing working directory back to parent"
-          pwd
+          echo "npm publish --tag nightly"
 
       - name: Publish NPM Packages cordova-fetch
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          cd ..
+          mkdir cordova-fetch
+          cd cordova-fetch
           pwd
-          echo "changing working directory to cordova-fetch"
-          pwd
-          echo "npm is publishing tag nightly"
-          echo "changing working directory back to parent"
-          pwd
+          echo "npm publish --tag nightly"
 
       - name: Publish NPM Packages cordova-serve
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          cd ..
+          mkdir cordova-serve
+          cd cordova-serve
           pwd
-          echo "changing working directory to cordova-serve"
-          pwd
-          echo "npm is publishing tag nightly"
-          echo "changing working directory back to parent"
-          pwd
+          echo "npm publish --tag nightly"
 
       - name: Publish NPM Packages cordova-create
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          cd ..
+          mkdir cordova-create
+          cd cordova-create
           pwd
-          echo "changing working directory to cordova-create"
-          pwd
-          echo "npm is publishing tag nightly"
-          echo "changing working directory back to parent"
-          pwd
+          echo "npm publish --tag nightly"
 
       - name: Publish NPM Packages cordova-node-xcode
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          cd ..
+          mkdir cordova-node
+          cd cordova-node-xcode
           pwd
-          echo "changing working directory to cordova-node-xcode"
-          pwd
-          echo "npm is publishing tag nightly"
-          echo "changing working directory back to parent"
-          pwd
+          echo "npm publish --tag nightly"
 
       - name: Publish NPM Packages cordova-android
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          cd ..
+          mkdir cordova-android
+          cd cordova-android
           pwd
-          echo "changing working directory to cordova-android"
-          pwd
-          echo "npm is publishing tag nightly"
-          echo "changing working directory back to parent"
-          pwd
+          echo "npm publish --tag nightly"
 
       - name: Publish NPM Packages cordova-electron
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          cd ..
+          mkdir cordova-electron
+          cd cordova-electron
           pwd
-          echo "changing working directory to cordova-electron"
-          pwd
-          echo "npm is publishing tag nightly"
-          echo "changing working directory back to parent"
-          pwd
+          echo "npm publish --tag nightly"
 
       - name: Publish NPM Packages cordova-ios
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          cd ..
+          mkdir cordova-ios
+          cd cordova-ios
           pwd
-          echo "changing working directory to cordova-ios"
-          pwd
-          echo "npm is publishing tag nightly"
-          echo "changing working directory back to parent"
-          pwd
+          echo "npm publish --tag nightly"
