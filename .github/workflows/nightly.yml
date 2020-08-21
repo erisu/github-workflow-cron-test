@@ -7,8 +7,13 @@ on:
         description: 'Reason of Manual Dispatch'
         required: true
         default: 'Re-run broken nightly build'
+
+      verbose:
+        description: 'Enable Verbose'
+        required: true
+        default: 'false'
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/15 * * * *'
 
 jobs:
   build:
@@ -28,6 +33,7 @@ jobs:
       - name: Inputs
         run: |
           echo "Dispatch Reason: ${{ github.event.inputs.dispatchReason }}"
+          echo "Enable Verbose: ${{ github.event.inputs.verbose }}"
 
       - name: Cordova Coho - Setup
         run: |
@@ -49,6 +55,7 @@ jobs:
             -r electron \
             -r ios \
             --pretend
+            --verbose ${{ github.event.inputs.verbose }}
 
       - name: NPM Publish - cordova-cli
         run: |
