@@ -14,10 +14,6 @@ jobs:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Environment Variable Setup
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Setup Coho
         run: |
           pwd
@@ -31,6 +27,8 @@ jobs:
           echo "coho nightly -r cli -r lib -r common -r fetch -r serve -r create -r node-xcode -r android -r electron -r ios --pretend"
 
       - name: Publish NPM Packages cordova-cli
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pwd
           echo "changing working directory to cordova-cli"
@@ -40,6 +38,8 @@ jobs:
           pwd
 
       - name: Publish NPM Packages cordova-lib
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pwd
           echo "changing working directory to cordova-lib"
@@ -49,6 +49,8 @@ jobs:
           pwd
 
       - name: Publish NPM Packages cordova-common
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pwd
           echo "changing working directory to cordova-common"
@@ -58,6 +60,8 @@ jobs:
           pwd
 
       - name: Publish NPM Packages cordova-fetch
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pwd
           echo "changing working directory to cordova-fetch"
@@ -67,6 +71,8 @@ jobs:
           pwd
 
       - name: Publish NPM Packages cordova-serve
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pwd
           echo "changing working directory to cordova-serve"
@@ -76,6 +82,8 @@ jobs:
           pwd
 
       - name: Publish NPM Packages cordova-create
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pwd
           echo "changing working directory to cordova-create"
@@ -85,6 +93,8 @@ jobs:
           pwd
 
       - name: Publish NPM Packages cordova-node-xcode
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pwd
           echo "changing working directory to cordova-node-xcode"
@@ -94,6 +104,8 @@ jobs:
           pwd
 
       - name: Publish NPM Packages cordova-android
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pwd
           echo "changing working directory to cordova-android"
@@ -103,6 +115,8 @@ jobs:
           pwd
 
       - name: Publish NPM Packages cordova-electron
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pwd
           echo "changing working directory to cordova-electron"
@@ -112,6 +126,8 @@ jobs:
           pwd
 
       - name: Publish NPM Packages cordova-ios
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pwd
           echo "changing working directory to cordova-ios"
