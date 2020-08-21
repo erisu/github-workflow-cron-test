@@ -15,9 +15,15 @@ jobs:
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
+        
+
+      # "run" or "uses" is required even though nothing is needed.
+      # Threw out an unnecessary echo to follow GH Actions requirements.
+      - name: Environment Setup
         env:
           HOGEHOGE: TEST
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: echo "Envrionment Setup Completed"
 
       - name: Cordova Coho - Setup
         run: |
