@@ -24,7 +24,18 @@ jobs:
 
       - name: Run Coho Nightly
         run: |
-          echo "coho nightly -r cli -r lib -r common -r fetch -r serve -r create -r node-xcode -r android -r electron -r ios --pretend"
+          coho nightly \
+            -r cli \
+            -r lib \
+            -r common \
+            -r fetch \
+            -r serve \
+            -r create \
+            -r node-xcode \
+            -r android \
+            -r electron \
+            -r ios \
+            --pretend
 
       - name: Publish NPM Packages cordova-cli
         env:
