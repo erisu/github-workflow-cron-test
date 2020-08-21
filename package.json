@@ -1,0 +1,14 @@
+{
+  "name": "github-workflow-cron-test",
+  "version": "1.0.0",
+  "description": "Fake Coho",
+  "main": "./coho",
+  "bin": {
+    "coho": "./coho"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Erisu",
+  "license": "Apache-2.0"
+}
