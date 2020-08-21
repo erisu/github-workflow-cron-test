@@ -8,6 +8,7 @@ jobs:
 
     steps:
       - name: Environment Variable Setup
+        run: echo "Targeted Cordova Packages:\n$( printf '  - %s\n' "${targets[@]}" )" 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           CDV_TARGETS: (cli lib common fetch serve create node-xcode android electron ios)
