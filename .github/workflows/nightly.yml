@@ -22,7 +22,7 @@ jobs:
 
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      npm_config_loglevel: ${{ github.event.inputs.verbose == 'true' ? 'verbose' : 'warn' }}
+      npm_config_loglevel: ${{ github.event.inputs.verbose == 'false' || 'verbose' }}
 
     steps:
       - uses: actions/checkout@v2
