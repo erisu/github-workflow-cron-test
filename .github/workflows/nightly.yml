@@ -36,7 +36,7 @@ jobs:
         run: |
           echo "Dispatch Reason: ${{ github.event.inputs.dispatchReason }}"
           echo "Enable Verbose: ${{ github.event.inputs.verbose }}"
-          echo "NPM Loglevel: ${{ npm_config_loglevel }}"
+          echo "NPM Loglevel: ${{ env.npm_config_loglevel }}"
 
       - name: Cordova Coho - Setup
         run: |
