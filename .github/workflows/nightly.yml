@@ -22,6 +22,7 @@ jobs:
 
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      npm_config_loglevel: ${{ github.event.inputs.verbose == 'true' ? 'verbose' : 'warn' }}
 
     steps:
       - uses: actions/checkout@v2
@@ -35,6 +36,7 @@ jobs:
         run: |
           echo "Dispatch Reason: ${{ github.event.inputs.dispatchReason }}"
           echo "Enable Verbose: ${{ github.event.inputs.verbose }}"
+          echo "NPM Loglevel: ${{ npm_config_loglevel }}"
 
       - name: Cordova Coho - Setup
         run: |
